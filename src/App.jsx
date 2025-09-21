@@ -1,4 +1,4 @@
-import { useReducer, useRef } from "react";
+import { useCallback, useReducer, useRef } from "react";
 import "./App.css";
 import Editor from "./components/Editor";
 import Header from "./components/Header";
@@ -23,7 +23,7 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, []);
   const idRef = useRef(3);
 
-  const onCreate = (content) => {
+  const onCreate = useCallback((content) => {
     // 액션 객체를 반환
     dispatch({
       type: "CREATE",
@@ -34,22 +34,21 @@ function App() {
         date: new Date().getTime(),
       },
     });
-  };
+  }, []);
 
-  const onUpdate = (todoId) => {
+  const onUpdate = useCallback((todoId) => {
     dispatch({
       type: "UPDATE",
       todoId,
     });
-  };
+  }, []);
 
-  const onDelete = (todoId) => {
+  const onDelete = useCallback((todoId) => {
     dispatch({
       type: "DELETE",
       todoId,
     });
-  };
-
+  }, []);
   return (
     <div className="App">
       <Header />
