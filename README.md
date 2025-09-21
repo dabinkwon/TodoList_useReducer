@@ -1,12 +1,14 @@
-# React + Vite
+# Todo List with useReducer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React의 `useReducer`를 활용하여 Todo List 기능을 구현한 연습 프로젝트입니다.  
+Redux의 `useDispatch` 훅 사용 방식에 익숙해지기 위한 목적으로 작성되었습니다.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 기능
 
-## Expanding the ESLint configuration
+- Todo 추가 (`onCreate`)
+- Todo 수정 (`onUpdate`)
+- Todo 삭제 (`onDelete`)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+모든 동작은 `dispatch`를 통해 액션 객체를 `reducer`로 전달하여 상태를 업데이트합니다.
